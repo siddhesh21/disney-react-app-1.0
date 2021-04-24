@@ -6,7 +6,14 @@ function Login() {
     <Container>
       <Content>
         <CTA>
-          <CTALogoOne src="/images/cta-logo-two.png" alt="" />
+          <CTALogoOne src="/images/cta-logo-one.svg" alt="" />
+          <SignUp>Get Access to all stuff here</SignUp>
+          <Description>
+            Get Premium Access to the greatest stories, all in one place. <br />
+            Explore from Disney, Pixar, Marvel, Star Wars and National
+            Geographic, as well as exclusive Disney+ Originals.
+          </Description>
+          <CTALogoTwo src="/images/cta-logo-two.png" alt=""></CTALogoTwo>
         </CTA>
         <BgImage />
       </Content>
@@ -70,6 +77,38 @@ const CTALogoOne = styled.img`
   max-width: 600px;
   min-height: 1px;
   display: block;
+  width: 100%;
+`;
+
+const SignUp = styled.a`
+  font-weight: bold;
+  color: whitesmoke;
+  background-color: #0063e5;
+  margin-bottom: 12px;
+  width: 100%;
+  letter-spacing: 1.5px;
+  font-size: 18px;
+  padding: 16.5px 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: #0483ee;
+  }
+`;
+const Description = styled.p`
+  color: hsla(0, 0%, 95.3%, 1);
+  font-size: 13px;
+  margin: 0 0 24px;
+  line-height: 1.5;
+  letter-spacing: 1.5px;
+`;
+
+const CTALogoTwo = styled.img`
+  margin-bottom: 20px;
+  max-width: 600px;
+  display: inline-block;
+  vertical-align: bottom;
   width: 100%;
 `;
 
