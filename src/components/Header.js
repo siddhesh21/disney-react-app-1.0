@@ -1,7 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import { auth, provider } from "../firebase";
 
 function Header() {
+  const handleAuth = () => [
+    auth
+      .signInWithPopup(provider)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        alert(error.message);
+      }),
+  ];
   return (
     <Nav>
       <Logo>
@@ -36,7 +47,9 @@ function Header() {
           <span>SERIES</span>
         </a>
       </NevMenu>
-      <SignOut>Login</SignOut>
+      <SignOut>
+        <span onClick={handleAuth}>Sign out</span>
+      </SignOut>
     </Nav>
   );
 }
@@ -130,10 +143,6 @@ const NevMenu = styled.div`
       }
     }
   }
-
-  /* @media (max-width: 768px) {
-    display: none;
-  } */
 `;
 
 const Login = styled.a`
