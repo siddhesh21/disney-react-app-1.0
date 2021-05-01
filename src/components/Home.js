@@ -14,24 +14,20 @@ import db from "../firebase";
 const Home = (props) => {
   const dispatch = useDispatch();
   const userName = useSelector(selectUserName);
-  let recommendations = [];
+  let recommends = [];
   let newDisney = [];
   let originals = [];
   let trending = [];
 
   useEffect(() => {
-    console.log("hello");
     db.collection("movies").onSnapshot((snapshot) => {
       snapshot.docs.map((doc) => {
-        console.log(recommendations);
+        console.log(recommends);
         // eslint-disable-next-line
         switch (doc.data().type) {
-          case "recommendations":
+          case "recommend":
             // eslint-disable-next-line
-            recommendations = [
-              ...recommendations,
-              { id: doc.id, ...doc.data() },
-            ];
+            recommends = [...recommends, { id: doc.id, ...doc.data() }];
             break;
 
           case "new":
@@ -53,7 +49,7 @@ const Home = (props) => {
 
       dispatch(
         setMovies({
-          recommendations: recommendations,
+          recommendations: recommends,
           newDisney: newDisney,
           original: originals,
           trending: trending,
